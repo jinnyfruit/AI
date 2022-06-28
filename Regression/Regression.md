@@ -1,4 +1,4 @@
-# Regression 
+# Regression
 
 > Supervised learning 은 크게 두가지로 나눌 수 있다. Regression과 Classification이다.  
 > Regression은 임의의 어떤 숫자를 예측하는 것이다. data 사이의 상관관계를 통해서 수식을 세우고,  
@@ -18,4 +18,25 @@ Knn Regression 또한 크게 다르지 않다. 분류가 아니라 예측한다�
 ex) 수가 기하급수적으로 커지는데 여전히 낼 수 있는 최대치의 값을 똑같이 예측하는 경우 
 
 ## 2. Linear regression 
+선형 회귀는 가장 많이 사용되는 회귀 알고리즘이다.  
+선형은 말그대로 특성이 하나인 경우 어떤 직선을 학습하는 알고리즘을 의미한다.  
+model 은 주로 sklearn.linear_model 패키지의 LinearRegression class를 사용한다. 
 
+직선방정식은 주로 y = ax + b 형태를 띄고 있다. 이때 a과 b값은 model parameter에 해당한다.  
+* weight (계수) = a  
+* bias (가중치) = b  
+
+앞서 나왔던 knn regression 과 다른 점이기도 하다.  
+우리가 ML 알고리즘을 훈련함으로써 얻고자 하는 것은 최적의 model parameter이다.  
+이 값은 model 훈련시 불러온 객체의 coef_ 와 intercept_ 에 저장되어있다. 
+
+그러나 일차방정식만으로는 높은 정확도를 구현하기 힘든 경우들도 있다.  
+이떄 사용되는 것이 다항식을 이용한 선형회귀이다. 
+
+**[ polynomial regression (다항회귀) ]**  
+이차 방정식의 형태를 띄고 있다.  
+경우에 따라서 직선인 단순 선형 회귀 모델보다 더 나은 정확도를 구현할 수 있다.  
+곡선형태를 띄고 있다. 직선모델로 데이터를 다 담을 수 없는 경우에는 좀 더 유연한 모델이 될 수 있다.  
+
+>이때 드는 의문은 "선형" 모델인데 과연 곡선 형태인 다항모델을 선형 범주에 넣을 수 있는가 하는 것이다.   
+> non-linear 한 것이 아닌가 생각할 수 있지만 2차식은 다른 변수로 치환가능하기 때문에 선형 관계를 띌 수 있다.
