@@ -39,4 +39,45 @@ model 은 주로 sklearn.linear_model 패키지의 LinearRegression class를 사
 곡선형태를 띄고 있다. 직선모델로 데이터를 다 담을 수 없는 경우에는 좀 더 유연한 모델이 될 수 있다.  
 
 >이때 드는 의문은 "선형" 모델인데 과연 곡선 형태인 다항모델을 선형 범주에 넣을 수 있는가 하는 것이다.   
-> non-linear 한 것이 아닌가 생각할 수 있지만 2차식은 다른 변수로 치환가능하기 때문에 선형 관계를 띌 수 있다.
+> non-linear 한 것이 아닌가 생각할 수 있지만 2차식은 다른 변수로 치환가능하기 때문에 선형 관계를 띌 수 있다.  
+
+## 3. Multiple Regression  
+선형 회귀에서 특성이 하나일 때는 일차 함수의 형태를 띈 선형회귀를 사용했다.  
+그러나 우리가 분석해야 할 데이터의 feature, 즉 특징이 두개 이상인 경우도 있다.   
+이 경우에는 여러 feature들도 반영하여 regression을 진행하면 좀 더 괜찮은 모델이 될 수 있다.  
+이런 여러 개의 feature를 반영한 회귀를 Multiple Regression이라고 부른다.  
+
+Multiple Regression은 feature의 개수에 따라서  
+y = ax1 + bx2 + cx3 ... + z 형태를 가지고 있다.  
+
+**[ Feature engineering ]**  
+이미 가진 feature들 사이에서 새로운 feature를 생성하는 작업을 의미.
+
+> **[ Underfitting and Overfitting ]**  
+> * Underfitting = 모델이 너무 단순한 나머지 정답률이 현저히 떨어지는 현상을 말한다.  
+> * Overfitting = training dataset 에 너무 최적화된 나머지 training data가 아닌 다른 dataset에서는 예측률이 떨어지는 경향을 말한다. 
+
+### Regularization
+Machine Learning model이 train data에만 최적화하지 않도록 하는 역할을 한다.  
+정규화를 하면 계수값의 크기가 너무 달라지지 않을 수 있도록 변환시킬 수 있다.  
+sklean에서는 여러가지 scaler를 제공하고 있다.
+###
+**1. Standard Scaler**
+  * 정규 분포로 변환
+  * 모든 feature의 mean 값을 0, variation을 1로 변환  
+###
+**2. Normalizer**
+  * 각 변수의 값을 원점으로부터 1만큼 떨어져 있는 범위 내로 변환  
+###
+**3. MinMaxScaler** 
+  * 데이터의 value들을 0~1 사이의 값으로 변환
+  * outlier에 민감
+###
+**4. Robust Scaler** 
+  * 모든 feature가 같은 값을 가짐. 
+  * mean과 variation이 아닌 median 과 IQR을 사용함 
+###
+Linear Regression + Regularization 을 한 모델은 두가지가 있다.
+Ridge & Lasso 를 사용하면 regularization의 양을 조절할 수 있다. 두 모델 다 sklearn.linear_model 패키지에 포함되어 있다.   
+
+
