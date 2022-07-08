@@ -77,7 +77,21 @@ sklean에서는 여러가지 scaler를 제공하고 있다.
   * 모든 feature가 같은 값을 가짐. 
   * mean과 variation이 아닌 median 과 IQR을 사용함 
 ###
-Linear Regression + Regularization 을 한 모델은 두가지가 있다.
-Ridge & Lasso 를 사용하면 regularization의 양을 조절할 수 있다. 두 모델 다 sklearn.linear_model 패키지에 포함되어 있다.   
+Linear Regression + Regularization 을 한 모델은 두가지가 있다.  
+
+**Ridge Regression**  
+* 가중치를 0에 가깝게하고 feature들의 영향력이 감소함 
+* feature의 중요도가 전반적으로 비슷함 
+* non-sparse model
+
+**Lasso Regression** 
+* 가중치를 0으로 하고 featrue를 무력화 시킴
+* 일부 featrue가 중요하다. 
+* sparse model 
+* feature selection 
+
+모델을 만들 떄 alpha 매개변수를 사용하여 regulation 정도를 결정한다.  
+alpha 값이 커지면, regulation 정도도 커지므로 이를 줄이기 위해서 계수 값을 더 줄인다.  
+
 
 
